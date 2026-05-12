@@ -61,19 +61,15 @@ while (opcao !== 5) {
     let novoTitulo = prompt(
         `Novo título (${livro.titulo}): `
     );
-
     if (novoTitulo.trim() !== "") {
         livro.titulo = novoTitulo;
     }
-
     let novoAutor = prompt(
         `Novo autor (${livro.autor}): `
     );
-
     if (novoAutor.trim() !== "") {
         livro.autor = novoAutor;
     }
-
     let novoGenero = prompt(
         `Novo gênero (${livro.genero}): `
     );
