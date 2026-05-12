@@ -29,7 +29,86 @@ while (opcao !== 5) {
       } else {
     livros.forEach((livro, indice) => {
         console.log(
-            `${indice}: ${livro.titulo}, ${livro.autor} (${livro.anoPub})` // Corrigida sintaxe ${}
-        );
+            `${indice}: ${livro.titulo}, ${livro.autor} (${livro.anoPub})`);
     });
  }
+    if (livros.length == 0) {
+        console.log("Nenhum livro cadastrado.");
+        break;
+    }
+
+    livros.forEach((livro, indice) => {
+        console.log(
+            `[${indice}] ${livro.titulo}`
+        );
+    });
+
+    let indice = parseInt(
+        prompt("Digite o índice do livro: ")
+    );
+
+    if (
+        (indice) ||
+        indice < 0 ||
+        indice >= livros.length
+    ) {
+        console.log("Índice inválido!");
+        break;
+    }
+
+    let livro = livros[indice];
+
+    let novoTitulo = prompt(
+        `Novo título (${livro.titulo}): `
+    );
+
+    if (novoTitulo.trim() !== "") {
+        livro.titulo = novoTitulo;
+    }
+
+    let novoAutor = prompt(
+        `Novo autor (${livro.autor}): `
+    );
+
+    if (novoAutor.trim() !== "") {
+        livro.autor = novoAutor;
+    }
+
+    let novoGenero = prompt(
+        `Novo gênero (${livro.genero}): `
+    );
+
+    if (novoGenero.trim() !== "") {
+        livro.genero = novoGenero;
+    }
+
+    let novoAno = prompt(
+        `Novo ano (${livro.anoPub}): `
+    );
+
+    if (novoAno.trim() !== "") {
+
+        const anoConvertido = parseInt(novoAno);
+
+        if ((anoConvertido)) {
+            livro.anoPub = anoConvertido;
+        }
+
+    }
+
+    let novasPaginas = prompt(
+        `Novo número de páginas (${livro.numPaginas}): `
+    );
+
+    if (novasPaginas.trim() !== "") {
+
+        const paginasConvertidas =
+            parseInt(novasPaginas);
+
+        if ((paginasConvertidas)) {
+            livro.numPaginas = paginasConvertidas;
+        }
+
+    }
+    console.log("Livro alterado!");
+    break;
