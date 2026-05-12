@@ -108,3 +108,41 @@ while (opcao !== 5) {
     }
     console.log("Livro alterado!");
     break;
+       if (livros.length == 0) {
+        console.log("Nenhum livro cadastrado.");
+        break;
+    }
+
+    const contagem = {};
+
+    livros.forEach((livro) => {
+
+        if (contagem[livro.genero]) {
+            contagem[livro.genero]++;
+        } else {
+            contagem[livro.genero] = 1;
+        }
+
+    });
+
+    console.log("Quantidade por gênero:");
+
+    for (let genero in contagem) {
+        console.log(
+            `${genero}: ${contagem[genero]}`
+        );
+    }
+
+    let soma = 0;
+
+    livros.forEach((livro) => {
+        soma += livro.numPaginas;
+    });
+
+    const media = soma / livros.length;
+
+    console.log(
+        `Média de páginas: ${media}`
+    );
+
+    break;
